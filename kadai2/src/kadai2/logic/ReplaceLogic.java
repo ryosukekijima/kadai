@@ -44,7 +44,6 @@ public class ReplaceLogic {
 	 * 初期処理
 	 *
 	 * @param args
-<<<<<<< HEAD
 	 */
 	private void init(String[] args) {
 
@@ -63,26 +62,6 @@ public class ReplaceLogic {
 		// 検索文字列
 		searchString = args[0];
 		// 置換文字列
-=======
-	 *
-	 * @param args
-	 */
-	private void init(String[] args) {
-
-		// // 検索値入力受付
-		// System.out.println("検索する文字を入力してください。");
-		// Scanner search = new Scanner(System.in);
-		// searchString = search.nextLine();
-		// search.close();
-		//
-		// // 置換値入力受付
-		// System.out.println("置換する文字を入力してください。");
-		// Scanner replace = new Scanner(System.in);
-		// replaceString = replace.nextLine();
-		// replace.close();
-
-		searchString = args[0];
->>>>>>> branch 'master' of https://github.com/ryosukekijima/kadai.git
 		replaceString = args[1];
 	}
 
