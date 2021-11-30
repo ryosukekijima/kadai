@@ -1,4 +1,5 @@
 package kadai3;
+<<<<<<< HEAD
 
 import kadai3.logic.SortLogic;
 
@@ -29,6 +30,36 @@ public class SortMain {
 	 * @param args
 	 */
 	private void load(String[] args) {
+=======
+import kadai3.logic.SortLogic;
+
+/**
+ * ③テキストファイル内の文字列のソート 概要 テキストファイルに出力された文字列（行単位）を独自のロジックでソートし、別ファイルに出力しなさい。
+ * なお、昇順、降順は引数で指定することとします。 ※CollectionのソートはNG。
+ *
+ * @author kijima
+ *
+ */
+public class SortMain {
+
+	/**
+	 * mainメソッド
+	 *
+	 * @param args
+	 */
+	public static void main(String[] args) {
+
+		// プログラムを呼び出し
+		load(args);
+	}
+
+	/**
+	 * SortTextFileクラス呼び出し
+	 *
+	 * @param args
+	 */
+	private static void load(String[] args) {
+>>>>>>> branch 'master' of https://github.com/ryosukekijima/kadai.git
 
 		if (args.length == 0 || args == null) {
 

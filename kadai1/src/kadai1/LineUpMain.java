@@ -1,4 +1,5 @@
 package kadai1;
+<<<<<<< HEAD
 
 import kadai1.logic.LineUpLogic;
 
@@ -28,6 +29,35 @@ public class LineUpMain {
 	 * @param args
 	 */
 	private void load(String[] args) {
+=======
+import kadai1.logic.LineUpLogic;
+
+/**
+ * ①テキストファイルの並び替え[ファイル内の文字列を引数:昇順、降順をもとに並び替え、別ファイルに出力しなさい。]
+ *
+ * @author kijima
+ *
+ */
+public class LineUpMain {
+
+	/**
+	 * mainメソッド
+	 *
+	 * @param args
+	 */
+	public static void main(String[] args) {
+
+		// プログラムを呼び出し
+		load(args);
+	}
+
+	/**
+	 * LineUpTextFileクラス呼び出し
+	 *
+	 * @param args
+	 */
+	private static void load(String[] args) {
+>>>>>>> branch 'master' of https://github.com/ryosukekijima/kadai.git
 
 		if (args.length == 0 || args == null) {
 
