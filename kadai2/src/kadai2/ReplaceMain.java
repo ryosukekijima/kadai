@@ -17,7 +17,6 @@ public class ReplaceMain {
 	public static void main(String[] args) {
 
 		// プログラムを呼び出し
-<<<<<<< HEAD
 		ReplaceMain main = new ReplaceMain();
 		main.load(args);
 	}
@@ -27,18 +26,7 @@ public class ReplaceMain {
 	 *
 	 * @param args
 	 */
-	private void load(String[] args) {
-=======
-		load(args);
-	}
-
-	/**
-	 * SortTextFileクラス呼び出し
-	 *
-	 * @param args
-	 */
 	private static void load(String[] args) {
->>>>>>> branch 'master' of https://github.com/ryosukekijima/kadai.git
 
 		// テキストファイル内文字列の置換
 		ReplaceLogic replaceTextFile = new ReplaceLogic();
