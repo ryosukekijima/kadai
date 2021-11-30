@@ -1,3 +1,6 @@
+package kadai3;
+import kadai3.logic.SortLogic;
+
 /**
  * ③テキストファイル内の文字列のソート 概要 テキストファイルに出力された文字列（行単位）を独自のロジックでソートし、別ファイルに出力しなさい。
  * なお、昇順、降順は引数で指定することとします。 ※CollectionのソートはNG。
@@ -34,7 +37,7 @@ public class SortMain {
 			if (args[0].equals("1") || args[0].equals("2")) {
 
 				// ファイル読み書き実行
-				SortTextFile sortTextFile = new SortTextFile();
+				SortLogic sortTextFile = new SortLogic();
 				sortTextFile.execute(args);
 			} else {
 

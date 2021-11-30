@@ -1,3 +1,6 @@
+package kadai1;
+import kadai1.logic.LineUpLogic;
+
 /**
  * ①テキストファイルの並び替え[ファイル内の文字列を引数:昇順、降順をもとに並び替え、別ファイルに出力しなさい。]
  *
@@ -33,7 +36,7 @@ public class LineUpMain {
 			if (args[0].equals("1") || args[0].equals("2")) {
 
 				// ファイル読み書き実行
-				LineUpTextFile lineUpextFile = new LineUpTextFile();
+				LineUpLogic lineUpextFile = new LineUpLogic();
 				lineUpextFile.execute(args);
 			} else {
 

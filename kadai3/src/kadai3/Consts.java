@@ -1,3 +1,4 @@
+package kadai3;
 /**
  * 定数クラス
  *

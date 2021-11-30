@@ -1,17 +1,28 @@
+package kadai3.logic;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+import kadai3.Consts;
 
 /**
- *
+ * ③テキストファイルの昇順降順入れ替え[ファイル内の文字列を引数:昇順、降順をもとに並び替え、別ファイルに出力しなさい。]
  *
  * @author kijima
  *
  */
-public class LineUpTextFile {
+public class SortLogic {
+
+	/**
+	 * 昇順モード
+	 */
+	public static String ASC_MODE = "1";
 
 	/**
 	 * 実行モード
@@ -30,7 +41,6 @@ public class LineUpTextFile {
 
 		// 処理開始
 		prcessing();
-
 	}
 
 	/**
@@ -43,7 +53,7 @@ public class LineUpTextFile {
 		// パラメータチェック
 		if (isNotEmpty(args)) {
 
-			if (args[0].equals(Consts.NORMAL_MODE) || args[0].equals(Consts.REVERSE_MODE)) {
+			if (args[0].equals(Consts.ASC_MODE) || args[0].equals(Consts.DESC_MODE)) {
 
 				exeMode = args[0];
 			} else {
@@ -58,16 +68,16 @@ public class LineUpTextFile {
 	 */
 	private void prcessing() {
 		// ファイル読み込み
-		String inputStr = readFile();
+		List<String> inputList = readFile();
 
-		if (exeMode.equals(Consts.NORMAL_MODE)) {
+		if (exeMode.equals(Consts.ASC_MODE)) {
 
 			// ファイルそのまま書き込み
-			writeFile(inputStr);
-		} else if (exeMode.equals(Consts.REVERSE_MODE)) {
+			writeFile(sortAsc(inputList));
+		} else if (exeMode.equals(Consts.DESC_MODE)) {
 
 			// ファイル逆順に書き込み
-			writeFile(reverseText(inputStr));
+			writeFile(sortDesc(inputList));
 		}
 	}
 
@@ -78,9 +88,9 @@ public class LineUpTextFile {
 	 * @throws IOException
 	 *
 	 */
-	private String readFile() {
+	private List<String> readFile() {
 
-		StringBuffer input = new StringBuffer();
+		List<String> inputList = new ArrayList<String>();
 		BufferedReader br = null;
 		try {
 			File file = new File("/Users/kijima/Desktop/input.txt");
@@ -89,7 +99,7 @@ public class LineUpTextFile {
 
 			String text;
 			while ((text = br.readLine()) != null) {
-				input.append(text);
+				inputList.add(text);
 			}
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
@@ -105,7 +115,7 @@ public class LineUpTextFile {
 			}
 		}
 
-		return input.toString();
+		return inputList;
 	}
 
 	/**
@@ -113,16 +123,19 @@ public class LineUpTextFile {
 	 *
 	 * @param sortAsc
 	 */
-	private void writeFile(String str) {
+	private void writeFile(List<String> list) {
 
 		FileWriter filewriter = null;
 		try {
 			File file = new File("/Users/kijima/Desktop/output.txt");
 			filewriter = new FileWriter(file);
 
-			filewriter.write(str);
+			for (String s : list) {
+				filewriter.write(s + Consts.CRLF);
+			}
 			filewriter.flush();
 		} catch (IOException e) {
+
 			System.out.println(e);
 		} finally {
 			// ファイルを閉じる
@@ -136,19 +149,63 @@ public class LineUpTextFile {
 	}
 
 	/**
-	 * 文字列を逆順にする
-	 *
+	 * 文字列を昇順に並べ替える
+	 */
+	/**
 	 * @param inputStr
 	 * @return
+	 * @throws IOException
+	 *
 	 */
-	private String reverseText(String str) {
+	private List<String> sortAsc(List<String> inputList) {
 
-		StringBuffer output = new StringBuffer();
-		char[] charList = str.toCharArray();
-		for (int i = charList.length - 1; i >= 0; i--) {
-			output.append(charList[i]);
+		List<String> outputList = new ArrayList<String>();
+
+		for (String input : inputList) {
+			StringBuffer output = new StringBuffer();
+			char[] charList = input.toCharArray();
+
+			for (int i = 0; i < charList.length - 1; i++) {
+				for (int j = 0; j < charList.length - 1 - i; j++) {
+					if (charList[j] > charList[j + 1]) {
+						char temp = charList[j];
+						charList[j] = charList[j + 1];
+						charList[j + 1] = temp;
+					}
+				}
+			}
+			outputList.add(output.append(charList).toString());
 		}
-		return output.toString();
+
+		return outputList;
+	}
+
+	/**
+	 * 文字列を降順に並べ替える
+	 *
+	 * @return
+	 */
+	private List<String> sortDesc(List<String> inputList) {
+
+		List<String> outputList = new ArrayList<String>();
+
+		for (String input : inputList) {
+			StringBuffer output = new StringBuffer();
+			char[] charList = input.toCharArray();
+
+			for (int i = 0; i < charList.length - 1; i++) {
+				for (int j = 0; j < charList.length - 1 - i; j++) {
+					if (charList[j] < charList[j + 1]) {
+						char temp = charList[j];
+						charList[j] = charList[j + 1];
+						charList[j + 1] = temp;
+					}
+				}
+			}
+			outputList.add(output.append(charList).toString());
+		}
+
+		return outputList;
 	}
 
 	/**
