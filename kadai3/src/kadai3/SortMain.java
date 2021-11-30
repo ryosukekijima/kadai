@@ -30,33 +30,6 @@ public class SortMain {
 	 */
 	private void load(String[] args) {
 
-/**
- * ③テキストファイル内の文字列のソート 概要 テキストファイルに出力された文字列（行単位）を独自のロジックでソートし、別ファイルに出力しなさい。
- * なお、昇順、降順は引数で指定することとします。 ※CollectionのソートはNG。
- *
- * @author kijima
- *
- */
-public class SortMain {
-
-	/**
-	 * mainメソッド
-	 *
-	 * @param args
-	 */
-	public static void main(String[] args) {
-
-		// プログラムを呼び出し
-		load(args);
-	}
-
-	/**
-	 * SortTextFileクラス呼び出し
-	 *
-	 * @param args
-	 */
-	private static void load(String[] args) {
-
 		if (args.length == 0 || args == null) {
 
 			System.out.println("引数を入力してください。");
